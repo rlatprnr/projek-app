@@ -1,0 +1,21 @@
+<ion-view ion-cover-header='220'>
+  <pa-nav-bar></pa-nav-bar>
+  <ion-content class="main-container">
+    <img class='dynamic-img-height cover-img' ng-src={{news.coverImgUrl}}></img>
+    <div class="row">
+      <div class="col">
+        <b>{{news.title}}</b>
+      </div>
+    </div>
+
+    <div class='row project-tab-content'>
+      <div class='col'>
+        <div ng-bind-html='news.body'></div>
+        <a class="item item-text-wrap" ng-click="openBrowser(news.url)"  ng-if="news.url">
+          <h2>Sumber berita</h2>
+          <p>{{news.url}}</p>
+        </a>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

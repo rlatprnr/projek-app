@@ -1,0 +1,14 @@
+<ion-item class='item-divider'>
+  <div class="row">
+    <div class="col col-75">
+      <h3>{{item.title}}</h3>
+      <p class='subdued'>{{item.createdAt | date:'MMM d, y'}}</p>
+    </div>
+    <div class="col col-center text-right">
+      <i class="fa fa-fort-awesome"></i>
+    </div>
+  </div>
+</ion-item>
+<ion-item class='item-image news-item-image'>
+  <img class='dynamic-img-height' ng-src={{item.coverImgUrl}}></img>
+</ion-item>

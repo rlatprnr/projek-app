@@ -1,0 +1,44 @@
+<ion-view cache-view='false'>
+  <pa-nav-bar></pa-nav-bar>
+  <ion-content class='calm-background access register login'>
+    <div class='row'>
+      <div class='col text-center'>
+        <form name="myForm" novalidate>
+          <div class='list'>
+            <label class="item item-input">
+              <i class="fa fa-user"></i>
+              <input type="text" placeholder="First Name" name="firstName" ng-model="form.firstName" required ng-minlength="3" ng-maxlength="30">
+              <i ng-show='myForm.firstName.$dirty && myForm.firstName.$invalid' class="error fa fa-times-circle"></i>
+            </label>
+
+            <label class="item item-input">
+              <i class="fa fa-user"></i>
+              <input type="text" placeholder="Last Name" name="lastName" ng-model="form.lastName" required ng-minlength="3" ng-maxlength="30">
+              <i ng-show='myForm.lastName.$dirty && myForm.lastName.$invalid' class="error fa fa-times-circle"></i>
+            </label>
+
+            <label class="item item-input">
+              <i class="fa fa-phone"></i>
+              <span ng-show='helpPhone' style='margin-right:6px;font-size:14px;font-weight:normal;'>+62</span>
+              <input type="tel" placeholder="{{helpPhone ? '' : 'Mobile Phone'}}" name="phone" ng-focus='helpPhone=true' ng-change='phoneInput()' ng-model="form.tmpPhone" required ng-pattern="/^[0-9]{9,}$/">
+              <i ng-show='myForm.phone.$dirty && myForm.phone.$invalid' class="error fa fa-times-circle"></i>
+            </label>
+
+            <label class="item item-input">
+              <i class="fa fa-envelope-o"></i>
+              <input type="email" placeholder="Email" name="inpEmail" ng-model="form.email" required>
+              <i ng-show='myForm.inpEmail.$dirty && myForm.inpEmail.$invalid' class="error fa fa-times-circle"></i>
+            </label>
+          </div>
+        </form>
+        <div class="text-center">
+          <button ng-disabled='submitted || myForm.$invalid' ng-click="regSubmit()" class="button button-block button-loarge button-positive">REGISTER</button>
+          <p ui-sref='login' class='register-cta'>
+            Already have an account?
+            <span>SIGN IN</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

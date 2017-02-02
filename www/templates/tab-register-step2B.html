@@ -1,0 +1,110 @@
+<ion-view>
+  <ion-content class="main-container">
+    <div class="list">
+      <div class="item item-divider text-center">Pendaftaran Sales Agent</div>
+    </div>
+    <form name="myForm" ng-submit="myForm.$valid && regSubmit()" novalidate>
+      <div class="list list-inset">
+        <div class="item item-divider">Data Pribadi</div>
+        <label class="item item-input item-floating-label">
+          <span class="input-label"><i class="icon ion-ios-person-outline placeholder-icon"></i>&nbsp; Nama Lengkap</span>
+          <input type="text" placeholder="Nama Lengkap" name="inpName" ng-model="form.name" ng-minlength="3" ng-maxlength="30" required>
+          
+          <span style="color:red" ng-show="myForm.inpName && myForm.$submitted">
+            <span ng-show="myForm.inpName.$error.required"><small>Nama tidak boleh dikosongkan.</small></span>
+            <span ng-show="!myForm.inpName.$error.required && (myForm.inpName.$error.minlength || myForm.inpName.$error.maxlength) && myForm.inpName.$dirty"><small>Nama harus lebih dari 5 huruf.</small></span>
+          </span>
+        </label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label"><i class="icon ion-ios-telephone-outline placeholder-icon"></i>&nbsp; Nomor Handphone</span>
+          <input type="text" placeholder="Nomor Handphone" name="inpPhone" ng-model="form.phone" ng-pattern="/^[0-9][0-9]*$/" required>
+          <span style="color:red" ng-show="myForm.inpPhone && myForm.$submitted">
+            <span ng-show="myForm.inpPhone.$error.required"><small>Nomor handphone tidak boleh dikosongkan.</small></span>
+            <span ng-show="myForm.inpPhone.$error.pattern && myForm.inpPhone.$dirty"><small>Masukan nomor handphone dengan angka saja.</small></span>
+          </span>
+        </label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label"><i class="icon ion-card placeholder-icon"></i>&nbsp; Nomor KTP/SIM/PASSPORT</span>
+          <input type="text" placeholder="Nomor KTP/SIM/PASSPORT" name="inpGovid" ng-model="form.govid" required>
+          <span style="color:red" ng-show="myForm.inpGovid && myForm.$submitted">
+            <span ng-show="myForm.inpGovid.$error.required"><small>Nomor kartu identitas tidak boleh dikosongkan.</small></span>
+          </span>
+        </label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label"><i class="icon ion-ios-email-outline placeholder-icon"></i>&nbsp; Email</span>
+          <input type="email" placeholder="Email" name="inpEmail" ng-model="form.email" required>
+          <span style="color:red" ng-show="myForm.inpEmail && myForm.$submitted">
+            <span ng-show="myForm.inpEmail.$error.required"><small>Email tidak boleh dikosongkan.</small></span>
+            <span ng-show="myForm.inpEmail.$error.email"><small>Format email salah.</small></span>
+          </span>
+        </label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label"><i class="icon ion-ios-locked-outline placeholder-icon"></i>&nbsp; Password</span>
+          <input type="password" placeholder="Password Anda" name="inpPassword1" ng-model="form.password1"  ng-minlength="6" ng-maxlength="20" required>
+          <span style="color:red" ng-show="myForm.inpPassword1 && myForm.$submitted">
+            <span ng-show="myForm.inpPassword1.$error.required"><small>Password tidak boleh dikosongkan.</small></span>
+            <span ng-show="!myForm.inpPassword1.$error.required && (myForm.inpPassword1.$error.minlength || myForm.inpPassword1.$error.maxlength) && myForm.inpPassword1.$dirty"><small>Password harus terdiri dari 6 hingga 20 karakter</small></span>
+          </span>
+        </label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label"><i class="icon ion-ios-locked-outline placeholder-icon"></i>&nbsp; Konfirmasi Password</span>
+          <input type="password" placeholder="Ketik ulang password Anda" name="inpPassword2" ng-model="form.password2" valid-password-c="{{form.password1===form.password2}}" required>
+          <span style="color:red" ng-show="myForm.inpPassword2 && myForm.$submitted">
+            <span ng-show="myForm.inpPassword2.$error.required && myForm.inpPassword2.$dirty"><small>Password tidak boleh dikosongkan.</small></span>
+            <span ng-show="!myForm.inpPassword2.$error.required && myForm.inpPassword2.$error.noMatch && myForm.inpPassword2.$dirty"><small>Password tidak cocok.</small></span>
+          </span>
+        </label>
+        <label class="item item-input">
+          <div>&nbsp;</div>
+        </label>
+        
+        <div class="item item-divider">Detail Kantor Agent</div>
+        <label class="item item-input item-floating-label">
+          <span class="input-label"><i class="icon ion-ios-home placeholder-icon"></i>&nbsp; Nama Kantor Agent</span>
+          <input type="text" placeholder="Nama Kantor Agent" name="inpOffice" ng-model="form.office" required>
+          <span style="color:red" ng-show="myForm.inpOffice && myForm.$submitted">
+            <span ng-show="myForm.inpOffice.$error.required"><small>Nama kantor agent tidak boleh dikosongkan.</small></span>
+          </span>
+        </label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label"><i class="icon ion-ios-home placeholder-icon"></i>&nbsp; Nomor Telephone Kantor</span>
+          <input type="text" placeholder="Nomor Telephone Kantor" name="inpOfficeNum" ng-model="form.officenumber" required>
+          <span style="color:red" ng-show="myForm.inpOfficeNum && myForm.$submitted">
+            <span ng-show="myForm.inpOfficeNum.$error.required"><small>Nomor telephone kantor agent tidak boleh dikosongkan.</small></span>
+          </span>
+        </label>
+        <label class="item item-input item-select">
+          <div class="input-label">Provinsi</div>
+          <select name="inpProvince" ng-model="form.province" ng-change="filterCity(form.province)" required>
+            <option value=""><span style="color:#CCC;">- Pilih disini -</span></option>
+            <option ng-repeat="item in items" value="{{item.province_id}}">{{item.province_name}}</option>
+          </select>
+        </label>
+        <label class="item item-input item-select">
+          <div class="input-label">Kota</div>
+          <select name="inpCity" ng-model="form.city" required>
+            <option value=""><span style="color:#CCC;">- Pilih disini -</span></option>
+            <option ng-repeat="city in cities" value="{{city.city_id}}">{{city.city_name}}</option>
+          </select>
+        </label>
+        <label class="item item-input">
+          <div>&nbsp;</div>
+        </label>
+        <li class="item item-checkbox item-text-wrap">
+           <label class="checkbox">
+             <input type="checkbox" value="1" name="inpTerm" ng-model="form.term" required>
+           </label>
+           <small>Saya telah setuju dengan syarat & ketentuan yang berlaku.</small>
+           <br>
+           <span style="color:red" ng-show="myForm.inpTerm && myForm.$submitted">
+            <span ng-show="myForm.inpTerm.$error.required"><small>Centang persetujuan untuk mendaftar.<small></span>
+          </span>
+        </li>
+        <button class="button button-block button-assertive" type="submit">
+          Daftar Sekarang
+        </button>
+      </div>
+    </form>
+    
+  </ion-content>
+</ion-view>

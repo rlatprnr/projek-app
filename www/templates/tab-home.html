@@ -1,0 +1,42 @@
+<ion-view>
+  <ion-content class="calm-background main-container">
+    <ion-refresher pulling-text="Pull to refresh..." on-refresh="refresh()"></ion-refresher>
+
+    <div class='row featured-title' ng-if='hasFeatured'>
+      <div class='col'>
+        <p class='subdued'>Hot products</p>
+      </div>
+    </div>
+
+    <ion-slide-box class='hscroll' ng-if='hasFeatured' delegate-handle='hscroll' does-continue='true' slide-interval='featuredSlideInterval' auto-play='true' show-pager='false'>
+      <ion-slide ng-repeat='project in projects track by $index' class="hot-products">
+        <ion-list class='feed' type='card'>
+          <projects-feed-item item='project' ui-sref='project({id: project.id})'/>
+        </ion-list>
+      </ion-slide>
+    </ion-slide-box>
+
+    <div>
+      <ion-list class='feed' type='card' ng-repeat="item in items">
+        <div ng-if='item._type==="news"'>
+          <news-feed-item ui-sref='news-detail({newsid: item.id})' item='item'></news-feed-item>
+        </div>
+
+        <div ng-if='item._type==="ad"'>
+          <ad-item ng-click="goAd(item.destUrl)" item='item'></ad-item>
+        </div>
+
+        <div ng-if='item._type==="quotes"'>
+          <quotes-feed-item item='item'></quotes-feed-item>
+        </div>
+
+        <div ng-if='item._type==="updates"'>
+          <updates-feed-item item='item' go-to-update-on-click='item'></updates-feed-item>
+        </div>
+      <ion-list>
+    </div>
+
+    <ion-infinite-scroll immediate-check="false" ng-if="canFetch || !fetching" on-infinite="fetchMore()" distance="10%"></ion-infinite-scroll>
+  </ion-content>
+</ion-view>
+

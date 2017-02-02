@@ -1,0 +1,24 @@
+<ion-item class='item-divider' ui-sref='event({id: item.id})'>
+  <div class="row">
+    <div class="col col-75">
+      <h3>{{item.name}}</h3>
+      <p class='subdued'>{{item.fromDate | date:'MMM d, y'}}</p>
+    </div>
+    <div class="col col-center text-right">
+      <i class="fa fa-calendar"></i>
+    </div>
+  </div>
+</ion-item>
+<ion-item class='item-image news-item-image' ui-sref='event({id: item.id})'>
+  <img class='dynamic-img-height' ng-src={{item.coverImgUrl}}></img>
+</ion-item>
+<ion-item class='item-image news-item-image share'>
+  <h4 ng-show="item.attendeesCount >= 1">{{item.attendeesCount}} people are going</h4>
+  <!-- <h4 ng-show="item.attendeesCount < 5"></h4> -->
+  <div class="button-bar share-bar">
+    <a class="button" ng-class="{true:'button-positive btn-going', false:''}[item.myAttendance]" ng-click="clickGoing()">GOING</a>
+    <!--<a class="button" ng-click="openPopover($event)">SHARE</a>-->
+    <a class="button" ng-click="shareAnywhere(item.name, item.fromDate, item.publicUrl)">SHARE</a>
+  </div>
+</ion-item>
+

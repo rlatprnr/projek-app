@@ -1,0 +1,47 @@
+<slide-buttons>
+  <div class='intro-buttons'>
+    <button slide-button slide-button-light="button-positive" slide-button-dark="button-light" ng-click="introModal.hide()" ui-sref="register" class="button button-block button-large button-outline button-positive">
+      Join Now
+    </button>
+    <button slide-button slide-button-light="button-dark" slide-button-dark="button-light" ng-click="introModal.hide()" ui-sref="login" class="button button-block button-large button-clear button-dark">
+      Sign In
+    </button>
+  </div>
+
+  <ion-slide-box on-slide-changed="slideChanged($index)" class='intro-slide'>
+    <intro-slide class="screen-intro">
+      <img src='img/logo.png' />
+      <h3 class='text-center'>Everybody Can Sell</h3>
+    </intro-slide>
+
+    <intro-slide class="screen-b">
+      <i class='fa fa-bell'></i>
+      <h4 class='text-center'>News paling update seputar Properti & Ekonomi dengan fitur</h4>
+      <h3 class='text-center'>PUSH NOTIFICATION</h3>
+    </intro-slide>
+
+    <intro-slide class="screen-c">
+      <i class='fa fa-lightbulb-o'></i>
+      <h4 class='text-center'>Penuh ide & semangat anda setiaphari dari para</h4>
+      <h3 class='text-center'>MOVITOR TERNAMA</h3>
+    </intro-slide>
+
+    <intro-slide class="screen-d">
+      <i class='fa fa-home'></i>
+      <h4 class='text-center'>Memundahkan anda mendapatkan informasi produk</h4>
+      <h3 class='text-center'>PROPERTI TERKINI</h3>
+    </intro-slide>
+
+    <intro-slide class="screen-e">
+      <i class='fa fa-cogs'></i>
+      <h4 class='text-center'>Sebuah peluang bisnis properti terbesar, tercepat, dan yang</h4>
+      <h3 class='text-center'>PALING INOVATIF</h3>
+    </intro-slide>
+
+    <intro-slide class="screen-f">
+      <i class='fa fa-trophy'></i>
+      <h4 class='text-center'>RAIH KESUKESAN MENJADI AGEN PROPERTI PROFESSIONAL</h4>
+      <h3 class='text-center'>MULAI SEKARANG!</h3>
+    </intro-slide>
+  </ion-slide-box>
+</slide-buttons>

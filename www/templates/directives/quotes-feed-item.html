@@ -1,0 +1,20 @@
+<ion-item class='item-divider'>
+  <div class='row'>
+    <div class='col'>
+      <img class='avatar' ng-src="{{item.authorImgUrl}}"/>
+    </div>
+    <div class='col-75'>
+      <h3>{{item.authorName}}</h3>
+      <p><em style='font-style:italic'>- {{item.authorTitle}}</em></p>
+      <p class='subdued'>{{item.createdAt | date:'MMM d, y'}}</p>
+    </div>
+    <div class="col col-10 col-center text-right">
+      <i class="fa fa-quote-right"></i>
+    </div>
+  </div>
+</ion-item>
+<ion-item class='item-text-wrap'>
+  <span class="fa fa-quote-left" style="font-size:18px;"></span>&nbsp;
+  <span ng-bind="item.quote"></span>&nbsp;
+  <span class="fa fa-quote-right" style="font-size:18px;"></span>
+</ion-item>

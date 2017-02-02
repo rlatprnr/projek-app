@@ -1,0 +1,30 @@
+<ion-view cache-view='false'>
+  <pa-nav-bar disable-back='true'></pa-nav-bar>
+  <ion-content class='calm-background access register login'>
+    <div class='row'>
+      <div class='col text-center'>
+        <form name="myForm" novalidate>
+          <p>Please enter the verification code sent to your {{method}}</p>
+          <br>
+          <div class='list'>
+            <label class="item item-input">
+              <i class="fa fa-unlock-alt"></i>
+              <input type="text" placeholder="Verification Code" name="code" ng-model="form.code" required>
+              <i ng-show='myForm.code.$dirty && myForm.code.$invalid' class="error fa fa-times-circle"></i>
+            </label>
+          </div>
+        </form>
+        <div class="text-center">
+          <button ng-disabled='sending || myForm.$invalid' ng-click="verify()" class="button button-block button-positive">VERIFY</button>
+          <button ng-disabled='sending' ng-click="resend()" class="button button-block button-assertive">RE-SEND</button>
+
+          <p><a ng-click="useAlt()">Send to {{altMethod}} instead</a><p>
+          <p ui-sref='login' class='register-cta'>
+            Already have an account?
+            <span>SIGN IN</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

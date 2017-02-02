@@ -1,0 +1,26 @@
+<pa-nav-bar disable-back='true'></pa-nav-bar>
+<ion-tabs class="tabs-striped tabs-icon-top tabs-background-positive">
+  <ion-tab title="Home" href="#/tab/home" icon="fa fa-list-alt">
+    <ion-nav-view name="tab-home"></ion-nav-view>
+  </ion-tab>
+
+  <ion-tab title="Projects" href="#/tab/projects" icon="fa fa-fort-awesome" badge="badgeProjects>10?'10+':(badgeProjects<0?0:badgeProjects)">
+    <ion-nav-view name="tab-projects"></ion-nav-view>
+  </ion-tab>
+<!--
+  <ion-tab title="Quotes" href="#/tab/quotes" icon="fa fa-quote-right">
+    <ion-nav-view name="tab-quotes"></ion-nav-view>
+  </ion-tab>
+-->
+  <ion-tab title="Events" href="#/tab/events" icon="fa fa-calendar" badge="badgeEvents>10?'10+':(badgeEvents<0?0:badgeEvents)">
+    <ion-nav-view name="tab-events"></ion-nav-view>
+  </ion-tab>
+
+  <ion-tab title="Updates" href="#/tab/updates" icon="fa fa-tasks" badge="badgeUpdates>10?'10+':(badgeUpdates<0?0:badgeUpdates)">
+    <ion-nav-view name="tab-updates"></ion-nav-view>
+  </ion-tab>
+
+  <ion-tab title="News" href="#/tab/news" icon="fa fa-newspaper-o" badge="badgeNews>10?'10+':(badgeNews<0?0:badgeNews)">
+    <ion-nav-view name="tab-news"></ion-nav-view>
+  </ion-tab>
+</ion-tabs>

@@ -1,0 +1,63 @@
+<ion-view ion-cover-header='220'>
+  <pa-nav-bar title='Project'></pa-nav-bar>
+  <ion-content id='idProjectCtrl' class="main-container">
+    <ion-refresher pulling-text="Pull to refresh..." on-refresh="refresh()"></ion-refresher>
+    <div attachment-download='item.coverVideoUrl' class='project-cover-img dynamic-img-height cover-img' ng-style="{'background-image': 'url(' + item.coverImgUrl + ')'}">
+      <div ng-if='item.coverVideoUrl' class='video-play'>
+        <i class='fa fa-play-circle-o'></i>
+      </div>
+      <img ng-src={{item.coverImgUrl}}></img>
+    </div>
+    <div  class="row">
+      <div class="col">
+        <b>{{item.title}}</b>
+      </div>
+    </div>
+
+    <div class="tabs tabs-light tabs-top tabs-sunk tabs-striped">
+      <a class="tab-item" ng-class="{'tab-item-active': activeTab==='info'}" ng-click="activeTab='info'">
+        Intro
+      </a>
+      <a class="tab-item" ng-class="{'tab-item-active': activeTab==='updates'}" ng-click="activeTab='updates'">
+        Updates
+      </a>
+      <a class="tab-item" ng-class="{'tab-item-active': activeTab==='gallery'}" ng-click="activeTab='gallery'">
+        Gallery
+      </a>
+    </div>
+
+    <div class='row project-tab-content'>
+      <div class='col'>
+        <div ng-show="activeTab==='info'">
+          <ion-list>
+            <ion-item ng-click='showProjectItem(content)' ng-repeat="content in item.projectItems | orderBy:'+sort'" class='item-icon-right'>
+              {{content.title}}
+              <i class="icon ion-chevron-right"></i>
+            </ion-item>
+          </ion-list>
+        </div>
+        <div ng-show="activeTab==='updates'">
+          <ion-list class='feed' type='card' ng-repeat="update in item.updates track by update.id">
+            <updates-feed-item go-to-update-on-click='update' item='update' project='item'/>
+          </ion-list>
+        </div>
+        <div ng-show="activeTab==='gallery'">
+					<ion-list>
+						<ion-item ng-click='showAttachment(attachment)' ng-repeat="attachment in item.attachments">
+              <div class='row'>
+                <div class='col-75'>
+                  {{attachment.name}}
+                </div>
+                <div class='col-25 text-right'>
+                  <i class='fa fa-eye' style='font-size:19px'></i>
+                </div>
+              </div>
+						</ion-item>
+					</ion-list>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
+
+

@@ -1,0 +1,184 @@
+.item-divider a.item-content {
+  padding:0px 0px 0px 0px;
+  background-color: #F5F5F5;
+}
+
+.item-divider .row {
+  padding-left: 5px !important;
+  padding:5px 5px 5px 5px;
+}
+
+.item-image a.item-content {
+  padding:0px 0px 0px 0px;
+}
+.popover {
+  height: 85px;
+  width: 120px;
+  border-radius: 2px !important;
+}
+.popover ul {
+  padding: 5px 5px 5px 5px;
+}
+.popover li {
+  color: #3089C6;
+  font-size: 12px;
+}
+div.button-bar.share-bar{
+  height: 30px;
+}
+div.button-bar.share-bar a {
+  border-color:#3598DB;
+  min-height: 30px;
+  font-size: 12px;
+  border-radius: 0 !important;
+  color: #3598DB;
+  line-height: 32px;
+}
+div.button-bar.share-bar a.btn-going{
+  color: #FFFFFF !important;
+}
+
+.item-image.news-item-image.share {
+  border-bottom:1px solid #3598db;
+}
+.item-image.news-item-image.share h4 {
+  text-align: left;
+  padding: 5px;
+}
+.item-image.news-item-image.detail h4 {
+  text-align: left;
+  padding: 5px;
+}
+
+.badge {
+  background-color: red !important;
+  top: calc(50% - 20px) !important;
+    right: calc(50% - 30px) !important;
+}
+
+.not-items {
+  color: #666;
+  line-height: 85vh;
+}
+
+.ticket-body {
+  background-color: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  z-index: 2000;
+}
+
+.ticket-body .scroll-body {
+  overflow-y: scroll;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 60px;
+  padding: 0 10px;
+}
+
+.ticket-body .pswp__button--close {
+  float: none;
+  display: inline-block;
+  margin-top: 25px;
+}
+
+.ticket-body .barcode {
+  background-color: #f5f5f5;
+  margin: -1px;
+  margin-top: 10px;
+}
+
+.ticket-body .barcode .header {
+  display: flex;
+  padding: 15px 15px 0 15px;
+  align-items: center;
+  font-size: 12px;
+}
+
+.ticket-body .barcode .check-img {
+  width: 15vw;
+  margin: 0 15px 0 5px;
+}
+
+.ticket-body .barcode .barcode-img {
+  margin: 10px;
+  width: 30vw;
+  height: 30vw;
+}
+
+.ticket-body .feed {
+  margin-bottom: 10px;
+}
+
+.popup {
+  border-radius: 20px !important;
+}
+
+.popup-head {
+  border: 0 !important;
+}
+
+.popup-body {
+  text-align: center;
+}
+
+.popup-buttons button {
+  background-color: transparent !important;
+  color: #4481fb !important;
+}
+
+.popup-title,
+.popup-buttons button.button-positive {
+  font-weight: bold !important
+}
+
+.item.item-radio-group {
+  border: none;
+}
+
+.item.item-radio-group label {
+  margin-right: 20px;
+}
+
+.item.item-radio-group label input {
+  margin-right: 5px;
+}
+
+.question {
+  margin: 20px 10px;
+}
+
+.question .item-input {
+  border-width: 0 0 1px 0;
+}
+
+.submitted-message h3 {
+  margin: 60px 0;
+  text-align: center;
+}
+
+.button-bar.button-bar-gap>.button {
+  border-radius: 4px;
+  margin: 0 5px;
+}
+
+.reg-event-form {
+  background-color: white;
+  padding: 30px;
+}
+
+.reg-event-form-data {
+  margin-bottom: 10px;
+}
+
+.reg-item-question {
+  
+}
+
+.reg-item-answer {
+  padding-left: 20px;
+  font-weight: bold;
+}

@@ -1,0 +1,33 @@
+<ion-view cache-view='false'>
+  <pa-nav-bar></pa-nav-bar>
+  <ion-content class="login access calm-background main-container">
+    <div class='row'>
+      <div class='col text-center'>
+        <form name="myForm" novalidate>
+          <div class="list">
+            <label ng-show='useEmail' class="item item-input">
+              <i class="fa fa-user"></i>
+              <input type="email" placeholder="Email" name="email" ng-model="form.email" ng-focus='form.tmpPhone=null;helpPhone=null'>
+              <i ng-show='myForm.email.$dirty && myForm.email.$invalid' class="error fa fa-times-circle"></i>
+            </label>
+
+            <div ng-show='useEmail && usePhone' class="hr-sect col col-60 col-offset-20">OR</div>
+
+            <label ng-show='usePhone' class="item item-input">
+              <i class="fa fa-phone"></i>
+              <span ng-show='helpPhone' style='margin-right:6px;font-size:14px;font-weight:normal;'>+62</span>
+              <input type="tel" placeholder="{{helpPhone ? '' : 'Phone'}}" name="phone" ng-focus='form.email=null;helpPhone=true' ng-change='phoneInput()' ng-model="form.tmpPhone" required ng-pattern="/^[0-9]{9,}$/">
+              <i ng-show='myForm.phone.$dirty && myForm.phone.$invalid' class="error fa fa-times-circle"></i>
+            </label>
+          </div>
+          <button ng-disabled='(!form.email && !form.phone) || sending' ng-click="login()" class="button button-block button-positive">SIGN IN</button>
+        </form>
+
+        <p ui-sref='register' class='register-cta'>
+          Need an Account?
+          <span>REGISTER</span>
+        </p>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,21 @@
+<ion-view>
+  <pa-nav-bar title='Event Registration Form'></pa-nav-bar>
+  <ion-content class="main-container">
+    <div ng-show="!submitted">
+      <div id="registrationForm" novalidate>
+      </div>
+      <div ng-show="formLoaded">
+        <div class="button-bar button-bar-gap">
+          <a class="button button-positive" ng-click="clickGoing(item.id)">Submit</a>
+          <a class="button button-dark" ng-click="clickCancel()">Cancel</a>
+        </div>
+      </div>
+    </div>
+    <div class="submitted-message" ng-show="submitted">
+      <h3>You have successfully registered to this event.</h3>
+      <div class="button-bar">
+        <a ng-click="clickDone()" class="button button-positive">Done</a>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

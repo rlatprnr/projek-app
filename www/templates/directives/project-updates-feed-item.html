@@ -1,0 +1,14 @@
+<ion-item class='item-divider'>
+  <div class="row">
+    <div class="col col-75">
+      <h3>Update<span ng-if='project || item.project.id'>:</span> {{project.title || item.project.title}}</h3>
+      <p class='subdued'>{{item.createdAt | date:'MMM d, y'}}</p>
+    </div>
+    <div class="col col-center text-right">
+      <i class="fa fa-tasks"></i>
+    </div>
+  </div>
+</ion-item>
+<ion-item class='item-text-wrap'>
+  {{item.summary}}
+</ion-item>

@@ -1,0 +1,44 @@
+<ion-view ion-cover-header='220'>
+<pa-nav-bar title='Event'></pa-nav-bar>
+<ion-content class="main-container">
+<ion-refresher pulling-text="Pull to refresh..." on-refresh="refresh()"></ion-refresher>
+<ion-item class='item-image news-item-image'>
+  <img class='dynamic-img-height' ng-src={{item.coverImgUrl}}></img>
+</ion-item>
+<ion-item class='item-image news-item-image detail'>
+  <h4 ng-show="item.attendeesCount >= 1">{{item.attendeesCount}} people are going</h4>
+  <!-- <h4 ng-show="item.attendeesCount < 5"></h4> -->
+  <div class="button-bar share-bar">
+    <a class="button" ng-class="{true:'button-positive btn-going', false:''}[item.myAttendance]" ng-click="clickGoing()">GOING</a>
+    <a class="button" ng-click="shareAnywhere(item.name, item.fromDate, item.publicUrl)">SHARE</a>
+  </div>
+</ion-item>
+<div style="padding:15px 15px 0px 15px; font-size: 8px">
+<h5>{{item.name}}</h5>
+</div>
+<div class="list list-inset">
+	<div class="item item-image">
+  <div class="row">
+    <div class="col col-75 text-left">
+      <p class='subdued'>{{item.fromDate | date:'MMM d, y'}}</p>
+    </div>
+    <div class="col col-center text-right">
+      <i class="fa fa-calendar"></i>
+    </div>
+</div>
+</div>
+<div class="item item-image">
+    <div class="row">
+    <div class="col col-75 text-left">
+      <p class='subdued'>{{item.location}}</p>
+    </div>
+    <div class="col col-center text-right">
+      <i class="fa fa-map-marker"></i>
+    </div>
+  </div>
+  </div>
+</div>
+<div style="padding:0px 15px 15px 15px; font-size: 12px" ng-bind-html="item.description">
+</div>
+</ion-content>
+</ion-view>

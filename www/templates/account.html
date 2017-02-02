@@ -1,0 +1,46 @@
+<ion-view class='account' ion-cover-header='220'>
+  <pa-nav-bar></pa-nav-bar>
+  <ion-content class="main-container">
+    <div class='cover-img account-cover'>
+      <div class='row row-center text-center'>
+        <div class='col'>
+          <p class='name'>{{member.firstName}} {{member.lastName}}</p>
+          <img class='avatar' ng-src="img/avatar.jpg"/>
+          <p class='email' ng-bind='member.email'></p>
+        </div>
+      </div>
+    </div>
+    <ion-list>
+      <ion-item class='item-divider'>
+        ACCOUNT
+      </ion-item>
+      <ion-item ng-click='agentAction()' class='item-icon-left'>
+        <i class='icon fa fa-institution'></i>
+        {{agentActionText()}}
+      </ion-item>
+      <ion-item ng-click='eventTickets()' class='item-icon-left'>
+        <i class='icon fa fa-calendar'></i>
+        Event Tickets
+      </ion-item>
+      <ion-item ng-click='logout()' class='item-icon-left'>
+        <i class='icon fa fa-sign-out'></i>
+        Log Out
+      </ion-item>
+      <ion-item class='item-divider'>
+        ABOUT
+      </ion-item>
+      <ion-item ui-sref='term-condition' class='item-icon-left'>
+        <i class='icon fa fa-pencil-square-o'></i>
+        Terms and Conditions
+      </ion-item>
+      <ion-item ui-sref='contactus' class='item-icon-left'>
+        <i class='icon fa fa-phone'></i>
+        Contact Us
+      </ion-item>
+      <ion-item class='item-icon-left'>
+        <i class='icon fa fa-info-circle'></i>
+        Version {{appVersion}}
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

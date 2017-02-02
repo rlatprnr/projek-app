@@ -1,0 +1,19 @@
+{
+  "apps" : [
+    {
+      "name": "projek-cordova-web"
+    }
+  ],
+
+  "deploy" : {
+    "production" : {
+      "key": "/key/for/server/ssh",
+      "user": "server-user",
+      "host": "server.host",
+      "ref": "origin/master",
+      "repo": "git@git.domain.com:user/project.git",
+      "path": "/path/to/app/on/server",
+      "post-deploy": "nvm use; pm2 restart 'projek-cordova-web'"
+    }
+  }
+}

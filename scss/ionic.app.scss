@@ -1,0 +1,16 @@
+$ionicons-font-path: "../lib/ionic/fonts" !default;
+
+$positive: #3598db;
+$assertive: #b31a00;
+$calm: #E6E9EC;
+
+$tabs-light-text: $positive;
+$tabs-icon-size: 18px;
+
+$item-avatar-width: 45px;
+$item-avatar-height: 45px;
+
+@import "www/lib/fontawesome/scss/font-awesome";
+@import "www/lib/ionic/scss/ionic";
+@import "app.scss";
+

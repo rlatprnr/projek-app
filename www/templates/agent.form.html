@@ -1,0 +1,56 @@
+<ion-view cache-view='false'>
+  <pa-nav-bar></pa-nav-bar>
+  <ion-content class="main-container access login">
+    <div class='row'>
+      <div class='col'>
+        <form name='agentForm'>
+          <div class="list">
+            <label class="item item-input">
+              <i class="fa fa-user-secret"></i>
+              <input type="number" string-to-number placeholder="Nomor KTP" name="govId" ng-model="agent.govId" required>
+              <i ng-show='agentForm.govId.$dirty && agentForm.govId.$invalid' class="error fa fa-times-circle"></i>
+            </label>
+
+            <label class="item item-input">
+              <i class="fa fa-institution"></i>
+              <input type="text" placeholder="Nama PT" name="companyName" ng-model="agent.companyName" ng-required='agent.officeName'>
+              <i ng-show='agentForm.companyName.$dirty && agentForm.companyName.$invalid' class="error fa fa-times-circle"></i>
+            </label>
+
+            <label class="item item-input">
+              <i class="fa fa-briefcase"></i>
+              <input type="text" placeholder="Nama kantor" name="officeName" ng-model="agent.officeName" ng-required='agent.companyName'>
+              <i ng-show='agentForm.officeName.$dirty && agentForm.officeName.$invalid' class="error fa fa-times-circle"></i>
+            </label>
+
+            <label class="item item-input">
+              <i class="fa fa-building"></i>
+              <input type="text" placeholder="Alamat kantor" name="officeAddress" ng-model="agent.officeAddress">
+              <i ng-show='agentForm.officeAddress.$dirty && agentForm.officeAddress.$invalid' class="error fa fa-times-circle"></i>
+            </label>
+
+            <label class="item item-input">
+              <i class="fa fa-map-marker"></i>
+              <input type="text" placeholder="Kota" name="officeCity" ng-model="agent.officeCity">
+              <i ng-show='agentForm.officeCity.$dirty && agentForm.officeCity.$invalid' class="error fa fa-times-circle"></i>
+            </label>
+
+            <label class="item item-input">
+              <i class="fa fa-globe"></i>
+              <input type="text" placeholder="Provinsi" name="officeProvince" ng-model="agent.officeProvince">
+              <i ng-show='agentForm.officeProvince.$dirty && agentForm.officeProvince.$invalid' class="error fa fa-times-circle"></i>
+            </label>
+
+            <label class="item item-input">
+              <i class="fa fa-phone"></i>
+              <span ng-show='helpPhone' style='margin-right:6px;font-size:14px;font-weight:normal;'>+62</span>
+              <input type="tel" placeholder="{{helpPhone ? '' : 'Telephone kantor'}}" name="officePhone" ng-model="agent.tmpPhone" ng-change='phoneInput()' ng-focus='helpPhone=true' ng-pattern="/^[0-9]{9,}$/">
+              <i ng-show='agentForm.officePhone.$dirty && agentForm.officePhone.$invalid' class="error fa fa-times-circle"></i>
+            </label>
+          </div>
+        </form>
+          <button ng-disabled='agentForm.$pristine || !agentForm.$valid || sending' ng-click="submit()" class="button button-block button-positive">Save</button>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
